@@ -1,0 +1,7 @@
+node_modules
+dist
+gql
+.eslintrc.js
+./lib/validations/validation.ts
+components/ui/
+*.mdx

@@ -19,6 +19,16 @@ const nextConfig = {
         hostname: 'localhost',
         port: '5000',
         pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'https://xn--80abvtaen6c.xn--p1ai',
+        pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'https://api.xn--80abvtaen6c.xn--p1ai',
+        pathname: '**'
       }
     ]
   }

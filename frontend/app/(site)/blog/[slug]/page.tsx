@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   const ogUrl = new URL(`${url}/api/og`);
   ogUrl.searchParams.set('heading', post.title);
   ogUrl.searchParams.set('type', 'Blog post');
-  ogUrl.searchParams.set('image', absoluteUrlImageFromPayload(post.cover.url!));
+  ogUrl.searchParams.set('image', post.cover.url!);
   ogUrl.searchParams.set('mode', 'dark');
 
   return {

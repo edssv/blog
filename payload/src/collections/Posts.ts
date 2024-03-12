@@ -1,10 +1,3 @@
-import {
-  HTMLConverterFeature,
-  LinkFeature,
-  ParagraphFeature,
-  lexicalEditor,
-  lexicalHTML,
-} from "@payloadcms/richtext-lexical";
 import { CollectionConfig } from "payload/types";
 import { slateEditor } from "@payloadcms/richtext-slate";
 

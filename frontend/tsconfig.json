@@ -23,13 +23,6 @@
       "payload-types": ["../payload/src/payload-types"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "../payload/src/payload-types",
-    "lib/serialize.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../payload/src/payload-types"],
   "exclude": ["node_modules"]
 }

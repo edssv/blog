@@ -31,4 +31,5 @@ export default buildConfig({
     },
   }),
   cors: [process.env.CLIENT_URL],
+  serverURL: process.env.SERVER_URL,
 });

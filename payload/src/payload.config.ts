@@ -3,7 +3,6 @@ import path from "path";
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { Media } from "./collections/Media";
@@ -31,5 +30,4 @@ export default buildConfig({
     },
   }),
   cors: [process.env.CLIENT_URL],
-  serverURL: process.env.SERVER_URL,
 });

@@ -6,7 +6,6 @@ import {
   lexicalHTML,
 } from "@payloadcms/richtext-lexical";
 import { CollectionConfig } from "payload/types";
-import { UploadHTMLConverter } from "../converters";
 import { slateEditor } from "@payloadcms/richtext-slate";
 
 export const Posts: CollectionConfig = {

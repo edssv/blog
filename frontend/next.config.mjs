@@ -22,12 +22,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://xn--80abvtaen6c.xn--p1ai',
+        hostname: 'xn--80abvtaen6c.xn--p1ai',
         pathname: '**'
       },
       {
         protocol: 'https',
-        hostname: 'https://api.xn--80abvtaen6c.xn--p1ai',
+        hostname: 'api.xn--80abvtaen6c.xn--p1ai',
         pathname: '**'
       }
     ]

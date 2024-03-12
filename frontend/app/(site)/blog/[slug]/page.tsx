@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 
 import { Icons } from '@/components/icons';
+import { PostShareButton } from '@/components/post-share-button';
 import { buttonVariants } from '@/components/ui/button';
 import { env } from '@/env.mjs';
 import { getPublicUrl } from '@/lib/get-public-url';
@@ -105,6 +106,13 @@ export default async function PostPage({ params }: PostPageProps) {
         <p className='my-4 text-lg'>
           <Balancer>{post.description}</Balancer>
         </p>
+        <PostShareButton
+          post={{ image: absoluteUrlImageFromPayload(post.cover.url!), title: post.title }}
+          size='sm'
+          variant='outline'
+        >
+          <Icons.share /> <span className='ml-2'>Поделиться</span>
+        </PostShareButton>
       </div>
       <div className='lg:-mx-10 xl:-mx-12'>
         <Image
@@ -118,11 +126,18 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
       <BlogPageContent postContent={post.content} />
       <hr className='mb-3 mt-12' />
-      <div className='mb-6 flex'>
+      <div className='mb-6 flex justify-between'>
         <Link className={cn(buttonVariants({ variant: 'ghost' }))} href={getPublicUrl.home()}>
           <Icons.chevronLeft className='mr-2 size-4' />
           Все статьи
         </Link>
+        <PostShareButton
+          post={{ image: absoluteUrlImageFromPayload(post.cover.url!), title: post.title }}
+          size='sm'
+          variant='outline'
+        >
+          <Icons.share /> <span className='ml-2'>Поделиться</span>
+        </PostShareButton>
       </div>
     </article>
   );

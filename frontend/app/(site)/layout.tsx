@@ -1,5 +1,7 @@
+import { ModeToggle } from '@/components/mode-toggle';
 import { SiteBrand } from '@/components/site-brand';
 import { SiteFooter } from '@/components/site-footer';
+import { siteConfig } from '@/config/site';
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
@@ -12,8 +14,9 @@ export default function Layout({ children }: MarketingLayoutProps) {
         <div className='flex h-20 items-center justify-between py-6'>
           <div className='flex items-center space-x-3'>
             <SiteBrand classname='size-10' />
-            <p>Село Бронница</p>
+            <span className='hidden font-medium sm:inline-block'>{siteConfig.name}</span>
           </div>
+          <ModeToggle />
         </div>
       </header>
       <main className='flex-1'>{children}</main>

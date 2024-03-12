@@ -19,6 +19,7 @@ export function PostPreview({ cover, createdAt, description, featured = false, i
     day: 'numeric',
     year: '2-digit'
   });
+
   return (
     <div
       className={cn('group mt-[72px] basis-auto sm:mt-40 sm:basis-1/2', {

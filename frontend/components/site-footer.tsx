@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import * as React from 'react';
 
-import { ModeToggle } from '@/components/mode-toggle';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 
@@ -17,9 +16,8 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             src={`${siteConfig.url}/android-chrome-192x192.png`}
             width={32}
           />
-          <p className='text-center text-sm leading-loose md:text-left'>© 2024 Eduard Sysoev</p>
         </div>
-        <ModeToggle />
+        <p className='text-center text-sm leading-loose md:text-left'>© 2024 Eduard Sysoev</p>
       </div>
     </footer>
   );

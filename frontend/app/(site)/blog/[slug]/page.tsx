@@ -2,14 +2,16 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Balancer from 'react-wrap-balancer';
 
 import { Icons } from '@/components/icons';
 import { buttonVariants } from '@/components/ui/button';
 import { env } from '@/env.mjs';
 import { getPublicUrl } from '@/lib/get-public-url';
-import { serialize } from '@/lib/serialize';
 import { absoluteUrl, absoluteUrlImageFromPayload, cn, formatDate } from '@/lib/utils';
 import { PostService } from '@/services/post.service';
+
+import { BlogPageContent } from './components/blog-page-content';
 
 interface PostPageProps {
   params: {
@@ -51,7 +53,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       title: post.title,
       description: post.description,
       type: 'article',
-      url: absoluteUrl(`/blog/${post.id}`),
+      url: absoluteUrl(getPublicUrl.blog(post.id)),
       images: [
         {
           url: ogUrl.toString(),
@@ -85,34 +87,41 @@ export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
 
   return (
-    <article className='container relative max-w-3xl py-6 lg:py-10'>
+    <article className='container relative max-w-3xl p-6 sm:px-8 lg:py-10'>
       <Link
         className={cn(buttonVariants({ variant: 'ghost' }), 'absolute left-[-200px] top-14 hidden xl:inline-flex')}
         href={getPublicUrl.home()}
       >
         <Icons.chevronLeft className='mr-2 size-4' />
-        See all posts
+        Все статьи
       </Link>
       <div>
         <time className='block text-sm text-muted-foreground' dateTime={post.createdAt}>
           Опубликовано {formatDate(post.createdAt)}
         </time>
-        <h1 className='font-heading mt-2 inline-block text-4xl leading-tight lg:text-5xl'>{post.title}</h1>
+        <h1 className='mt-2 inline-block text-4xl leading-tight lg:text-5xl'>
+          <Balancer>{post.title}</Balancer>
+        </h1>
+        <p className='my-4 text-lg'>
+          <Balancer>{post.description}</Balancer>
+        </p>
       </div>
-      <Image
-        priority
-        alt={post.title}
-        className='my-8 rounded-md bg-muted transition-colors'
-        height={405}
-        src={absoluteUrlImageFromPayload(post.cover.url!)}
-        width={720}
-      />
-      {serialize(post.content)}
-      <hr className='mt-12' />
-      <div className='flex justify-center py-6 lg:py-10'>
+      <div className='lg:-mx-10 xl:-mx-12'>
+        <Image
+          priority
+          alt={post.title}
+          className='my-8 w-full rounded-3xl bg-muted transition-colors'
+          height={405}
+          src={absoluteUrlImageFromPayload(post.cover.url!)}
+          width={720}
+        />
+      </div>
+      <BlogPageContent postContent={post.content} />
+      <hr className='mb-3 mt-12' />
+      <div className='mb-6 flex'>
         <Link className={cn(buttonVariants({ variant: 'ghost' }))} href={getPublicUrl.home()}>
           <Icons.chevronLeft className='mr-2 size-4' />
-          See all posts
+          Все статьи
         </Link>
       </div>
     </article>

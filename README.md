@@ -2,8 +2,8 @@
 
 Самые свежие новости и события села - у нас на портале! Будь в курсе всех событий в нашем уютном поселении. Информация о жизни сельского района, культурных мероприятиях и интересных событиях. Подписывайся и не упускай важные новости!
 
-![hero](frontend/public/og.png)
+![hero](frontend/public/og.jpg)
 
 ## Лицензия
 
-Licensed under the [MIT license](https://github.com/edssv/thepiratejournal/LICENSE.md).
+Licensed under the [MIT license](https://github.com/edssv/blog/LICENSE.md).

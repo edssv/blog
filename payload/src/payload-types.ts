@@ -67,21 +67,11 @@ export interface Post {
   title: string;
   description: string;
   cover: number | Media;
-  content: {
-    root: {
-      children: {
-        type: string;
-        version: number;
+  content?:
+    | {
         [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      type: string;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -135,9 +125,4 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
-}
-
-
-declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
 }

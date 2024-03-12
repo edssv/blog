@@ -1,14 +1,14 @@
-import path from 'path';
+import path from "path";
 
-import { payloadCloud } from '@payloadcms/plugin-cloud';
-import { postgresAdapter } from '@payloadcms/db-postgres';
-import { webpackBundler } from '@payloadcms/bundler-webpack';
-import { slateEditor } from '@payloadcms/richtext-slate';
-import { buildConfig } from 'payload/config';
-
-import { Media } from './collections/Media';
-import { Posts } from './collections/Posts';
-import { Users } from './collections/Users';
+import { payloadCloud } from "@payloadcms/plugin-cloud";
+import { postgresAdapter } from "@payloadcms/db-postgres";
+import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { buildConfig } from "payload/config";
+import { slateEditor } from "@payloadcms/richtext-slate";
+import { Media } from "./collections/Media";
+import { Posts } from "./collections/Posts";
+import { Users } from "./collections/Users";
 
 export default buildConfig({
   admin: {
@@ -18,10 +18,11 @@ export default buildConfig({
   editor: slateEditor({}),
   collections: [Media, Posts, Users],
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    outputFile: path.resolve(__dirname, "payload-types.ts"),
+    declare: false,
   },
   graphQL: {
-    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+    schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
   plugins: [payloadCloud()],
   db: postgresAdapter({
